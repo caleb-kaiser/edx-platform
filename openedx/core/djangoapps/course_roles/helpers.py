@@ -16,6 +16,7 @@ from xmodule.modulestore.django import modulestore
 # .. toggle_use_cases: temporary
 # .. toggle_creation_date: 2023-10-17
 # .. toggle_target_removal_date: 2023-12-01
+# .. toggle_warning:
 USE_PERMISSION_CHECKS_FLAG = WaffleFlag('course_roles.use_permission_checks', module_name=__name__) or False
 
 

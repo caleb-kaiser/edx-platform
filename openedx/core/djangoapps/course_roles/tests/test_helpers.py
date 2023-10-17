@@ -457,14 +457,12 @@ class PermissionCheckTestCase(SharedModuleStoreTestCase):
             self.user_1, test_permissions, self.course_1.id, self.organization_1.name
         )
 
-    """
-    Tests below this line test that the helpers return false if the
-    USE_PERMISSION_CHECKS_FLAG is not enabled
-    Tests use the same data as used in earlier tests, with the only difference being
-    the value of the USE_PERMISSION_CHECKS_FLAG flag
-    """
     @override_waffle_flag(USE_PERMISSION_CHECKS_FLAG, active=False)
     def test_course_permission_check_with_waffle_flag_disabled(self):
+        """
+        Tests that the helper function returns false if the USE_PERMISSION_CHECKS_FLAG is not enabled
+        Uses the same data as the earlier test, with the only difference being the waffle flag value
+        """
         CourseRolesUserRole.objects.create(
             user=self.user_1, role=self.role_1, course_id=self.course_1.id, org=self.organization_1
         )
@@ -472,6 +470,10 @@ class PermissionCheckTestCase(SharedModuleStoreTestCase):
 
     @override_waffle_flag(USE_PERMISSION_CHECKS_FLAG, active=False)
     def test_course_permissions_list_check_with_waffle_flag_disabled(self):
+        """
+        Tests that the helper function returns false if the USE_PERMISSION_CHECKS_FLAG is not enabled
+        Uses the same data as the earlier test, with the only difference being the waffle flag value
+        """
         CourseRolesUserRole.objects.create(
             user=self.user_1, role=self.role_2, course_id=self.course_1.id, org=self.organization_1
         )
@@ -480,17 +482,29 @@ class PermissionCheckTestCase(SharedModuleStoreTestCase):
 
     @override_waffle_flag(USE_PERMISSION_CHECKS_FLAG, active=False)
     def test_organization_permission_check_with_waffle_flag_disabled(self):
+        """
+        Tests that the helper function returns false if the USE_PERMISSION_CHECKS_FLAG is not enabled
+        Uses the same data as the earlier test, with the only difference being the waffle flag value
+        """
         CourseRolesUserRole.objects.create(user=self.user_1, role=self.role_1, org=self.organization_1)
         assert not organization_permission_check(self.user_1, self.permission_1.name, self.organization_1.name)
 
     @override_waffle_flag(USE_PERMISSION_CHECKS_FLAG, active=False)
     def test_organization_permissions_list_check_with_waffle_flag_disabled(self):
+        """
+        Tests that the helper function returns false if the USE_PERMISSION_CHECKS_FLAG is not enabled
+        Uses the same data as the earlier test, with the only difference being the waffle flag value
+        """
         CourseRolesUserRole.objects.create(user=self.user_1, role=self.role_2, org=self.organization_1)
         test_permissions = [self.permission_1.name, self.permission_2.name]
         assert not organization_permissions_list_check(self.user_1, test_permissions, self.organization_1.name)
 
     @override_waffle_flag(USE_PERMISSION_CHECKS_FLAG, active=False)
     def test_course_or_organization_permission_check_with_waffle_flag_disabled(self):
+        """
+        Tests that the helper function returns false if the USE_PERMISSION_CHECKS_FLAG is not enabled
+        Uses the same data as the earlier test, with the only difference being the waffle flag value
+        """
         CourseRolesUserRole.objects.create(
             user=self.user_1, role=self.role_1, course_id=self.course_1.id, org=self.organization_1
         )
@@ -500,6 +514,10 @@ class PermissionCheckTestCase(SharedModuleStoreTestCase):
 
     @override_waffle_flag(USE_PERMISSION_CHECKS_FLAG, active=False)
     def test_course_or_organization_list_permission_check_with_waffle_flag_disabled(self):
+        """
+        Tests that the helper function returns false if the USE_PERMISSION_CHECKS_FLAG is not enabled
+        Uses the same data as the earlier test, with the only difference being the waffle flag value
+        """
         CourseRolesUserRole.objects.create(
             user=self.user_1, role=self.role_2, course_id=self.course_1.id, org=self.organization_1
         )
