@@ -3264,6 +3264,9 @@ INSTALLED_APPS = [
 
     # MFE API
     'lms.djangoapps.mfe_config_api',
+
+    # CORS Proxy
+    'lms.djangoapps.registration_proxy',
 ]
 
 ######################### CSRF #########################################
@@ -4613,20 +4616,6 @@ ENTERPRISE_READONLY_ACCOUNT_FIELDS = [
 ]
 ENTERPRISE_CUSTOMER_COOKIE_NAME = 'enterprise_customer_uuid'
 BASE_COOKIE_DOMAIN = 'localhost'
-SYSTEM_TO_FEATURE_ROLE_MAPPING = {
-    ENTERPRISE_ADMIN_ROLE: [
-        ENTERPRISE_DASHBOARD_ADMIN_ROLE,
-        ENTERPRISE_CATALOG_ADMIN_ROLE,
-        ENTERPRISE_ENROLLMENT_API_ADMIN_ROLE,
-        ENTERPRISE_REPORTING_CONFIG_ADMIN_ROLE,
-    ],
-    ENTERPRISE_OPERATOR_ROLE: [
-        ENTERPRISE_DASHBOARD_ADMIN_ROLE,
-        ENTERPRISE_CATALOG_ADMIN_ROLE,
-        ENTERPRISE_ENROLLMENT_API_ADMIN_ROLE,
-        ENTERPRISE_REPORTING_CONFIG_ADMIN_ROLE,
-    ],
-}
 
 DATA_CONSENT_SHARE_CACHE_TIMEOUT = 8 * 60 * 60  # 8 hours
 
