@@ -449,7 +449,7 @@ class SymbolValidator:
     def validate(self, password, user=None):  # lint-amnesty, pylint: disable=unused-argument
         if _validate_condition(password, lambda c: 'S' in unicodedata.category(c), self.min_symbol):
             return
-        if _validate_condition(password, lambda c: 'P' in unicodedata.category(c), self.min_punctuation):
+        if _validate_condition(password, lambda c: 'P' in unicodedata.category(c), self.min_symbol):
             return
         raise ValidationError(
             ngettext(
