@@ -1,6 +1,8 @@
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import requests
 
+@csrf_exempt
 def registration_proxy(request):
     if request.method == "POST":
         external_api_url = "https://www.comet.com/api/auth/new"
