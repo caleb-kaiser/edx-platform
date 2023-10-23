@@ -449,10 +449,12 @@ class SymbolValidator:
     def validate(self, password, user=None):  # lint-amnesty, pylint: disable=unused-argument
         if _validate_condition(password, lambda c: 'S' in unicodedata.category(c), self.min_symbol):
             return
+        if _validate_condition(password, lambda c: 'P' in unicodedata.category(c), self.min_punctuation):
+            return
         raise ValidationError(
             ngettext(
-                'This password must contain at least %(min_symbol)d symbol.',
-                'This password must contain at least %(min_symbol)d symbols.',
+                'This password must contain at least %(min_symbol)d special character.',
+                'This password must contain at least %(min_symbol)d special characters.',
                 self.min_symbol
             ),
             code='too_few_symbols',
@@ -461,16 +463,16 @@ class SymbolValidator:
 
     def get_help_text(self):
         return ngettext(
-            "Your password must contain at least %(min_symbol)d symbol.",
-            "Your password must contain at least %(min_symbol)d symbols.",
+            "Your password must contain at least %(min_symbol)d special character.",
+            "Your password must contain at least %(min_symbol)d special characters.",
             self.min_symbol
         ) % {'min_symbol': self.min_symbol}
 
     def get_instruction_text(self):  # lint-amnesty, pylint: disable=missing-function-docstring
         if self.min_symbol > 0:
             return ngettext(
-                '%(num)d symbol',
-                '%(num)d symbols',
+                '%(num)d special character',
+                '%(num)d special characters',
                 self.min_symbol
             ) % {'num': self.min_symbol}
         else:
