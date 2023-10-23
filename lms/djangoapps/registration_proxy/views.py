@@ -10,7 +10,6 @@ logger = logging.getLogger(__name__)
 def registration_proxy(request):
     if request.method == "POST":
         post_data = json.loads(request.body.decode('utf-8'))
-        logger.info("POST data: %s", post_data)
 
         headers = {
             'Content-type':'application/json', 
