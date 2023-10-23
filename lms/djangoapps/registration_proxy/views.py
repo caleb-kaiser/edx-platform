@@ -1,7 +1,9 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.test.utils import override_settings
 import requests
 
+@override_settings(DEBUG=True)
 @csrf_exempt
 def registration_proxy(request):
     if request.method == "POST":
