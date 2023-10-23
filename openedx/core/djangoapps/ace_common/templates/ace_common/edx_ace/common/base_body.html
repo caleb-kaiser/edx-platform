@@ -148,19 +148,6 @@
           {% endif %}
         </td>
       </tr>
-      <tr>
-        <!-- Actions -->
-        <td style="padding-bottom: 20px; background-color: #f5f5f5;">
-          {% get_action_links channel omit_unsubscribe_link=omit_unsubscribe_link as action_links %}
-          {% for action_link_url, action_link_text in action_links %}
-            <p>
-              <a href="{{ action_link_url }}" style="color: #005686">
-                <font color="#005686"><b>{{ action_link_text }}</b></font>
-              </a>
-            </p>
-          {% endfor %}
-        </td>
-      </tr>
       {% if unsubscribe_url %}
         <tr>
           <td>

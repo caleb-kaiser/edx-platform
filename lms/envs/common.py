@@ -3721,6 +3721,12 @@ AUTH_PASSWORD_VALIDATORS = [
             "max_length": 75
         }
     },
+    {
+        "NAME": "common.djangoapps.util.password_policy_validators.SymbolValidator",
+        "OPTIONS": {
+            "min_symbol": 1
+        }
+    }
 ]
 
 PASSWORD_POLICY_COMPLIANCE_ROLLOUT_CONFIG = {
